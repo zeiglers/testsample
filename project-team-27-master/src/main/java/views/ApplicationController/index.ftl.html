@@ -1,0 +1,105 @@
+<#import "../layout/defaultLayout.ftl.html" as layout>
+    <@layout.myLayout "Home page">
+
+        <!-- <script src="/assets/core.js" type="text/javascript"></script> -->
+        <script src="https://unpkg.com/typewriter-effect/dist/core.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <header>
+            <h1><img src="https://i.imgur.com/vGFSXiv.png" /></h1>
+        </header>
+        <div class="middle">
+            <div class="opponent-board">
+                <img src="https://i.imgur.com/rRCeb4m.png" class="column" />
+                <div class="row-grid">
+                    <img src="https://i.imgur.com/BqmXSQj.png" class="row" />
+                    <table id="opponent" class="battleGrid">
+                    </table>
+                </div>
+            </div>
+
+            <div class="player-board">
+                <img src="https://i.imgur.com/rRCeb4m.png" class="column" />
+                <div class="row-grid">
+                    <img src="https://i.imgur.com/BqmXSQj.png" class="row" />
+                    <table id="player" class="battleGrid">
+                    </table>
+                </div>
+            </div>
+
+            <div class="board-buttons">
+                <table class="shipLayout">
+                    <thead>
+                        <tr>
+                            <th>Ship</th>
+                            <th>
+                                <input type="checkbox" id="is_vertical">Vertical</input>
+                            </th>
+                            <th>&nbsp;&nbsp;Underwater</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Submarine</td>
+                        <td class="placeShipCell"><button class="placeShipButton" id="place_submarine">Place</button></td>
+                        <td style="text-align: center"><input type="checkbox" id="is_underwater"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Battleship</td>
+                        <td class="placeShipCell"><button class="placeShipButton" id="place_battleship">Place</button></td>
+                        <td style="text-align: center">N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Destroyer</td>
+                        <td class="placeShipCell"><button class="placeShipButton" id="place_destroyer">Place</button></td>
+                        <td style="text-align: center">N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Minesweeper</td>
+                        <td class="placeShipCell"><button class="placeShipButton" id="place_minesweeper">Place</button></td>
+                        <td style="text-align: center">N/A</td>
+                    </tr>
+                </table>
+
+                <div style="display: flex">
+                    <div class="sonar-pulse">
+                        <button class="inactive-sonar-pulse">Use Sonar Pulse</button>
+                        <p># Sonar Pulses Left:</p>
+                        <p class="sonar-pulse-count"></p>
+                    </div>
+
+                    <div class="move-fleet">
+                        <p id="move-fleet-title">Move Fleet</p>
+                        <form>
+                            <select style="margin-left: 30px" id="direction-choices">
+								<option default>Choose a direction</option>
+								<option value="N">North</option>
+								<option value="S">South</option>
+								<option value="E">East</option>
+								<option value="W">West</option>
+							</select>
+                        </form>
+                        <button class="inactive-move-fleet">Move</button>
+                        <p># Moves Left: <span class="move-fleet-count"></span></p>
+                    </div>
+                    <!-- move-fleet -->
+                </div>
+                <!-- weapons -->
+            </div>
+            <!-- board-buttons -->
+        </div>
+        <!-- middle -->
+
+        <div id="logwindow">
+            <h1 id="logtitle">BATTLE LOG</h1>
+            <p id="battlelog"></p>
+        </div>
+
+        <script type="text/javascript" src="/assets/game.js"></script>
+        <script>
+            initGame();
+            // Allows for the battlelog to scroll to the bottom every second
+            setInterval(updateScrollLog, 1000);
+        </script>
+
+    </@layout.myLayout>

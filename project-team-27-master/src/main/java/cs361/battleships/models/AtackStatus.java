@@ -1,0 +1,46 @@
+package cs361.battleships.models;
+
+public enum AtackStatus {
+
+	/**
+	 * The result if an attack results in a miss.
+	 */
+	MISS,
+
+	/**
+	 * The result if an attack results in a hit on an enemy ship.
+	 */
+	HIT,
+
+	/**
+	 * THe result if an attack sinks the enemy ship
+	 */
+	SUNK,
+
+	/**
+	 * The results if an attack results in the defeat of the opponent (a
+	 * surrender).
+	 */
+	SURRENDER,
+
+	/**
+	 * The result if the coordinates given are invalid.
+	 */
+	INVALID,
+
+	/**
+	 * The result of a free square in a sonar pulse
+	 */
+	FREE,
+
+	/**
+	 * The result of an occupied square in a sonar pulse
+	 */
+	OCCUPIED,
+
+	/**
+	 * The result of an overlapping ship for front-end error handling
+	 */
+	OVERLAPPING,
+
+}
